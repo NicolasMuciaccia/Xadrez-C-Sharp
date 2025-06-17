@@ -17,5 +17,21 @@
         {
             return pecas[linha, coluna];
         }
+
+        public void ColocarPeca(Peca p, Posicao pos)
+        {
+            if (temPeca(pos))
+            {
+                Console.WriteLine("Já existe uma peça nessa posição (" + pos +")");
+                return;
+            }
+            pecas[pos.linha, pos.coluna] = p;
+            p.posicao = pos;
+        }
+
+        private bool temPeca(Posicao pos)
+        {
+            return peca(pos.linha, pos.coluna) != null;
+        }
     }
 }
